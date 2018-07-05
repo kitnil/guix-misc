@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Compile all modules inside GUIX_PACKAGE_PATH
+
+@PARALLEL_BIN@ --will-cite @GUILD_BIN@ compile\
+ ::: $(@FIND_BIN@ $(@PRINTENV_BIN@ GUIX_PACKAGE_PATH | @TR_BIN@ ':' '\n') -name '*.scm')          
